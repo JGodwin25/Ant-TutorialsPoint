@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<project name="helloworld for Ant WAR Creation" default="build">
+
+<property name="tomcatdir" value="D:\Godwin Intern Files\apache-tomcat-8.5.23\webapps"/>
+
+<path id="getlibs">
+<fileset dir="./WebContent/WEB-INF/lib">
+	<include name="*.*"/>
+</fileset>
+</path>
+
+<target name="build">
+<copy todir="./work">
+<fileset dir="./WebContent"/>
+</copy>
+<javac srcdir="./src" destdir="./work/WEB-INF/classes">
+<classpath refid="getlibs"/>
+</javac>
+
+<copy todir="./work/WEB-INF/classes">
+<fileset dir="./src" excludes="**/*.java">
+</fileset>
+</copy>
+
+</target>
+
+<target name="war">
+<jar jarfile="./JesusChrist.war" basedir="./work"/>
+</target>
+
+
+<target name="deployFolder">
+<copy todir="${tomcatdir}/JesusChrist" preservelastmodified = "true">
+<fileset dir="./work"/>
+</copy>
+</target>
+
+<target name="doc">
+
+<javadoc packagenames="examples.*" sourcepath="./src" destdir="docs">
+<doctitle>Jesus Christ</doctitle>
+<bottom>Jesus Christ Joseph Mary All Saints</bottom>
+</javadoc>
+
+</target>
+
+<!--<target name="clean">
+<delete>
+<fileset dir="./work"/>
+</delete>
+</target>-->
+
+</project>
