@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<project name="Servlet Tutorials Point Hello World" default="info">
+<property name="srcdir" value="src"/>
+<property name="builddir" value="WebContent/WEB-INF/classes"/>
+<property name="libdir" value="WebContent/WEB-INF/lib"/>
+<path id="master-classpath">
+<pathelement path="${builddir}" />
+<fileset dir="${libdir}">
+<include name="*.jar"/>
+</fileset>
+</path>
+<target name="buildit">
+<mkdir dir="${builddir}"/>
+
+<!--Compile Code-->
+<javac destdir="${builddir}" source="1.8" target="1.8">
+<src path="${srcdir}"/>
+<classpath refid="master-classpath"/>
+</javac>
+
+</target>
+
+<!-- Clean -->
+<target name = "clean" description = "Clean output directories">
+<delete>
+<fileset dir = "${builddir}">
+<include name = "**/*.class"/>
+</fileset>
+</delete>
+</target>
+
+<!-- Documentation-->
+<target name="docit">
+
+<javadoc packagenames="com.*" sourcepath = "${srcdir}" destdir = "docit" version = "true" windowtitle = "Fax Application">
+      
+      <doctitle>Jesus</doctitle>
+      
+      <bottom>
+      (c)
+      </bottom>
+</javadoc>
+
+<echo>Done !</echo>
+</target>
+
+
+
+
+</project>

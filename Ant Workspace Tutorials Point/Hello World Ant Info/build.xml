@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<project name="Hello World" default="info">
+<!-- Define atleast one task-->
+<target name="info" depends="findsaviour">
+<!--Within target specify tasks-->
+<echo>Jesus Christ is my Saviour</echo>
+</target>
+<target name="findsaviour">
+<echo>Jesus Christ Mary Joseph All Saints</echo>
+</target>
+</project>
+<!-- Output
+D:\Godwin Intern Files\Ant Workspace Tutorials Point\Hello World Ant Info>"D:\Godwin Intern Files\ANT 1.10.3\bin\ant"
+Buildfile: D:\Godwin Intern Files\Ant Workspace Tutorials Point\Hello World Ant Info\build.xml
+
+info:
+     [echo] Jesus Christ is my Saviour
+
+BUILD SUCCESSFUL
+Total time: 0 seconds
+-->

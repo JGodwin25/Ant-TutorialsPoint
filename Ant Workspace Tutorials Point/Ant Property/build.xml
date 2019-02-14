@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<project name="Hello World" default="info">
+<property name="Saints" value="All Saints"/>
+<property file="build.properties"/>
+<!-- Define atleast one task-->
+
+<target name="info" depends="findsaviour">
+
+<!--Within target specify tasks-->
+<echo>Jesus Christ is my Saviour</echo>
+<echo>by ${boyname}</echo>
+</target>
+
+<target name="findsaviour">
+<echo>Jesus Christ Mary Joseph ${Saints}"</echo>
+</target>
+
+
+<target name="defaultProps" depends="info">
+<echo>Ant build File ${ant.file}</echo>
+<echo>Ant version ${ant.version}</echo>
+<echo>Ant basedir as in proj ele ${basedir}</echo>
+<echo>Ant java version ${ant.java.version}</echo>
+<echo>Ant Project name,default,invoked target ${ant.project.name} ,${ant.project.default-target} ,${ant.project.invoked-targets}</echo>
+<echo>Ant loc ant.jar ${ant.core.lib}</echo>
+<echo>Ant Home ${ant.home}</echo>
+<echo>Ant libs ${ant.library.dir}</echo>
+</target>
+
+</project>
+
+
+<!-- Output
+findsaviour:
+     [echo] Jesus Christ Mary Joseph All Saints"
+
+info:
+     [echo] Jesus Christ is my Saviour
+-->
